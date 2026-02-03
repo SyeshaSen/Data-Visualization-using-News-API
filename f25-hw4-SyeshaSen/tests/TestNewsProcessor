@@ -1,0 +1,29 @@
+import unittest
+from src.news_processor import NewsProcessor
+from src.article import Article
+class TestSearchNews(unittest.TestCase):
+    articles = [
+    Article(
+        url="https://fake.com",
+        source="CNN News",
+        author="Sam Richards",
+        title="Computer Science discovery",
+        description="About a new discovery in CS.",
+        published_at="2025-10-21",
+        content="With all of the recent discoveries..."
+    ),
+    Article(
+        url="https://fakeagain.com",
+        source="ABC",
+        author="Smith Roberts",
+        title="CRISPR",
+        description="New findings in CRISPER Tech.",
+        published_at="2023-09-26",
+        content="Tech keeps advancing..."
+    )
+]
+
+processor = NewsProcessor()
+
+df = processor.to_df(articles)
+print(df)
